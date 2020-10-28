@@ -48,3 +48,36 @@ grant all privileges on *.* to root@'%'identified by 'root';
 create user 'username'@'%' identified by 'password';  
 ```
 
+
+
+我们的测试用例
+
+
+
+```
+create user 'usr_kenyon'@'%' identified by 'usr_kenyon123456';  
+
+create database db_kenyon;
+
+use db_kenyon;
+
+CREATE TABLE warehouse ( 
+		warehouse_id int auto_increment primary key,
+		warehouse_name text,
+		warehouse_created timestamp 
+	);
+
+select * from tbl_kenyon;
+
+grant all privileges on db_kenyon.tbl_kenyon to 'usr_kenyon'@'%' identified by 'usr_kenyon123456';
+
+flush privileges;
+
+--localhost登录
+grant all privileges on *.* to 'usr_kenyon'@'localhost' identified by 'usr_kenyon123456';
+
+flush privileges;
+
+alter table tb_name modify id int auto_increment primary key
+```
+
