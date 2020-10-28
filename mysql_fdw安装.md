@@ -40,7 +40,7 @@ export PGHOME=/usr/local/pgsql
 
 export PATH=$PGHOME/bin:$PATH
 
-PGHOME="/usr/local/pgsql"
+
 if [ -z "${PATH}" ];then
     export PATH="${PGHOME}/bin"
 else
