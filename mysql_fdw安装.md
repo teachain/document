@@ -38,9 +38,6 @@ vim /etc/profile
 #添加内容如下：
 export PGHOME=/usr/local/pgsql
 
-export PATH=$PGHOME/bin:$PATH
-
-
 if [ -z "${PATH}" ];then
     export PATH="${PGHOME}/bin"
 else
