@@ -71,7 +71,7 @@ fi
 source /etc/profile
 ```
 
-####3、下载mysql_fdw源码，并编译安装在postgresql所在的服务器上
+#### 3、下载mysql_fdw源码，并编译安装在postgresql所在的服务器上
 
 ```
 git clone https://github.com/EnterpriseDB/mysql_fdw.git
