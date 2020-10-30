@@ -32,6 +32,8 @@ yum install -y docbook-style-xsl
 yum install -y fop 
 
 yum install -y libxslt
+
+yum install uuid uuid-devel
 ```
 
 2、源码编译安装postgresql
@@ -40,14 +42,16 @@ yum install -y libxslt
 wget https://ftp.postgresql.org/pub/source/v12.4/postgresql-12.4.tar.gz
 tar zxvf postgresql-12.4.tar.gz
 cd postgresql-12.4
-./configure --prefix=/usr/local/postgresql
-make prefix=/usr/local/postgresql install
+./configure --prefix=/usr/local/pgsql --with-uuid=ossp
+make prefix=/usr/local/pgsql install
+cd ..
+rm postgresql-12.4.tar.gz
 ```
 
 3、配置环境变量（把以下内容放置在/etc/profile文件中）
 
 ```
-PGHOME="/usr/local/postgresql"
+PGHOME="/usr/local/pgsql"
 if [ -z "${PATH}" ];then
     export PATH="${PGHOME}/bin"
 else

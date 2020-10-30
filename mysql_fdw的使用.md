@@ -10,7 +10,7 @@ psql
 postgres=# create extension mysql_fdw;
 ```
 
-#### 2、创建server映射
+#### 2、创建server映射（创建MySQL服务器定义）
 
 mysql_server为server名，mysql_fdw为扩展名
 
@@ -24,6 +24,8 @@ postgres=# CREATE SERVER mysql_server FOREIGN DATA WRAPPER mysql_fdw OPTIONS (ho
 * post为mysql的监听端口
 
 #### 3、创建用户映射
+
+将MySQL服务器定义映射到PostgreSQL的某个用户上，将来使用这个用户访问MySQL的数据。
 
 postgres为用户名，mysql_server为server名
 
@@ -89,4 +91,12 @@ mysql_fdw为扩展名
 
 ```
 postgres=# drop extension mysql_fdw ;
+```
+
+
+
+MySQL对应的表必须有主键才可以写入数据，否则会报如下错误
+
+```
+ERROR:  first column of remote table must be unique for INSERT/UPDATE/DELETE operation.
 ```
